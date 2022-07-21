@@ -3,6 +3,8 @@ import cardApi from "../../../api/api";
 import Card from "react-bootstrap/Card";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 const Cards = () => {
   const [postData, setPostData] = useState([]);
@@ -32,6 +34,10 @@ const Cards = () => {
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>{item.body}</Card.Text>
                 </Card.Body>
+                {/* <Button variant="primary">Primary</Button> */}
+                <Link to={`blog/${item.id}`}>
+                <Button >more</Button>
+                </Link>
               </Card>
               </Col>
             </div>
