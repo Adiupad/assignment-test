@@ -4,9 +4,10 @@ import Card from "react-bootstrap/Card";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Cards = () => {
+
   const [postData, setPostData] = useState([]);
   useEffect(() => {
     const cardDetails = async () => {
@@ -19,7 +20,6 @@ const Cards = () => {
     };
     cardDetails();
   }, []);
-
   return (
     <>
     <Row xs={1} sm={1} md={2} lg={4} xl={4} xxl={5} className="g-4">
@@ -34,8 +34,7 @@ const Cards = () => {
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>{item.body}</Card.Text>
                 </Card.Body>
-                {/* <Button variant="primary">Primary</Button> */}
-                <Link to={`blog/${item.id}`}>
+                <Link to={`post/${item.id}`}>
                 <Button >more</Button>
                 </Link>
               </Card>
@@ -45,6 +44,8 @@ const Cards = () => {
         );
       })}
       </Row>
+
+      <div className="blog-comment"></div>
     </>
   );
 };
